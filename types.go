@@ -1,7 +1,6 @@
 package swfinfo
 
 import (
-	"fmt"
 	"io"
 
 	"github.com/32bitkid/bitreader"
@@ -48,8 +47,6 @@ func (r *Rect) ReadFrom(f io.Reader) error {
 	tsize := uint(v)
 	var t uint32
 
-	fmt.Printf("tsize: %d\n", tsize)
-
 	// Xmin
 	t, err = br.Read32(tsize)
 	if err != nil {
@@ -78,11 +75,10 @@ func (r *Rect) ReadFrom(f io.Reader) error {
 	}
 	r.Ymax = Twips(t)
 
-	x, err := br.ByteAlign()
+	_, err = br.ByteAlign()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("bytealign: %d\n", x)
 
 	return nil
 }

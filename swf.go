@@ -57,6 +57,7 @@ func (s *SWF) ReadFrom(f io.Reader) error {
 		return &BadHeader{0, errors.New(string(signature[:]))}
 	}
 
+	// check signature
 	if signature[1] != 'W' || signature[2] != 'S' {
 		return &BadHeader{1, errors.New(string(signature[:]))}
 	}
@@ -89,16 +90,10 @@ func (s *SWF) ReadFrom(f io.Reader) error {
 		return &BadHeader{0, err}
 	}
 	// read frame rate
-	/*
-		if err = binary.Read(f, binary.LittleEndian, &s.FrameRate); err != nil {
-			return &BadHeader{0, err}
-		}
-	*/
 	var fr [2]byte
 	if err = binary.Read(f, binary.LittleEndian, &fr); err != nil {
 		return &BadHeader{0, err}
 	}
-	fmt.Printf("%d %d\n", fr[1], fr[0])
 	frp, err := strconv.ParseFloat(fmt.Sprintf("%d.%d", fr[1], fr[0]), 32)
 	if err != nil {
 		return err
