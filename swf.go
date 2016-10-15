@@ -37,6 +37,9 @@ func Open(filename string) (*SWF, error) {
 }
 
 func (s *SWF) Duration() time.Duration {
+	if s.FrameRate == 0 {
+		return time.Duration(0)
+	}
 	return time.Duration((float32(s.FrameCount)/s.FrameRate)*1000) * time.Millisecond
 }
 

@@ -15,6 +15,7 @@ func TestLoad(t *testing.T) {
 	fmt.Printf("Compression: %s\n", s.Compression.String())
 	fmt.Printf("Version: %d\n", s.Version)
 	fmt.Printf("Frame size: %f %f %f %f\n", s.FrameSize.Xmin.Pixels(), s.FrameSize.Ymin.Pixels(), s.FrameSize.Xmax.Pixels(), s.FrameSize.Ymax.Pixels())
+	fmt.Printf("Frame measure: %f %f\n", s.FrameSize.Width().Pixels(), s.FrameSize.Height().Pixels())
 	fmt.Printf("Frame rate: %f\n", s.FrameRate)
 	fmt.Printf("Frame count: %d\n", s.FrameCount)
 	fmt.Printf("Duration: %s\n", s.Duration().String())
