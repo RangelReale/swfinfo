@@ -3,4 +3,4 @@ import:
 - package: github.com/32bitkid/bitreader
   vcs: git
   version: master
-  repo: http://github.com:RangelReale/bitreader.git
+  repo: http://github.com/RangelReale/bitreader.git
