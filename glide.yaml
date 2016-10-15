@@ -1,0 +1,6 @@
+package: github.com/RangelReale/swfinfo
+import:
+- package: github.com/32bitkid/bitreader
+  vcs: git
+  version: master
+  repo: git@github.com:RangelReale/bitreader.git

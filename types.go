@@ -82,3 +82,11 @@ func (r *Rect) ReadFrom(f io.Reader) error {
 
 	return nil
 }
+
+func (r *Rect) Width() Twips {
+	return r.Xmax - r.Xmin
+}
+
+func (r *Rect) Height() Twips {
+	return r.Ymax - r.Ymin
+}

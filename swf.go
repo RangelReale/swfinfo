@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/smira/lzma"
 )
@@ -33,6 +34,10 @@ func Open(filename string) (*SWF, error) {
 		return nil, err
 	}
 	return s, nil
+}
+
+func (s *SWF) Duration() time.Duration {
+	return time.Duration((float32(s.FrameCount)/s.FrameRate)*1000) * time.Millisecond
 }
 
 func (s *SWF) ReadFrom(f io.Reader) error {

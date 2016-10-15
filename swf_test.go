@@ -17,4 +17,5 @@ func TestLoad(t *testing.T) {
 	fmt.Printf("Frame size: %f %f %f %f\n", s.FrameSize.Xmin.Pixels(), s.FrameSize.Ymin.Pixels(), s.FrameSize.Xmax.Pixels(), s.FrameSize.Ymax.Pixels())
 	fmt.Printf("Frame rate: %f\n", s.FrameRate)
 	fmt.Printf("Frame count: %d\n", s.FrameCount)
+	fmt.Printf("Duration: %s\n", s.Duration().String())
 }
