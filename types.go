@@ -37,7 +37,7 @@ type Rect struct {
 }
 
 func (r *Rect) ReadFrom(f io.Reader) error {
-	br := bitreader.NewBitReader(f)
+	br := bitreader.NewReader(f)
 	// read size of each property in bits
 	v, err := br.Read32(5)
 	if err != nil {
@@ -75,7 +75,7 @@ func (r *Rect) ReadFrom(f io.Reader) error {
 	}
 	r.Ymax = Twips(t)
 
-	_, err = br.ByteAlign()
+	_, err = br.Align()
 	if err != nil {
 		return err
 	}
